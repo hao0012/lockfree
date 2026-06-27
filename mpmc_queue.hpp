@@ -21,7 +21,7 @@ public:
 
   ~MPMCQueue() {
     while (head_ != tail_) {
-      slots_[head_].~slot();
+      slots_[idx(head_)].~slot();
       ++head_;
     }
     delete[] slots_;
